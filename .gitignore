@@ -1,0 +1,10 @@
+obj/
+Resources/
+Assets/
+bin/
+.vs/
+
+*.sln
+*.psd
+*.user
+*.suo
