@@ -19,7 +19,7 @@ namespace Restaurant
 {
     public partial class MainWindow : Window
     {
-        private List<DeliveryOrder> _savedOrders;
+//        private List<DeliveryOrder> _savedOrders;
 
         public MainWindow() {
             InitializeComponent();

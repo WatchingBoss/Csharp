@@ -1,18 +1,18 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using System.Windows.Navigation;
 using Restaurant_library;
 
 namespace Restaurant
 {
-    public partial class OrderWindow : Window
-    {
+    public partial class OrderWindow : Window {
         private DeliveryOrder _order;
         private bool _saveOrder = false;
 
         public bool SavedOrder { get => _saveOrder; }
         public DeliveryOrder NewOrder { get => _order; }
 
-        public OrderWindow() {
+        public OrderWindow( ) {
             InitializeComponent( );
             _order = new DeliveryOrder( );
         }
