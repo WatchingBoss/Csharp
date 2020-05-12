@@ -12,21 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Restaurant_library;
 
-namespace Restorant
+// This is Delivery client
+namespace Restaurant
 {
     public partial class MainWindow : Window
     {
-        private List<Order> openOrders = new List<Order>();
+        private List<DeliveryOrder> _savedOrders;
 
         public MainWindow() {
             InitializeComponent();
         }
 
         private void btnNewOrder_OnClick(object sender, RoutedEventArgs e) {
-            openOrders.Add(new Order());
-            ++Order.OrderCount;
-            openOrders[0].Show( );
+            OrderWindow newOrderWindow = new OrderWindow();
+            newOrderWindow.Show( );
         }
+        
+        private void ChildWindowClosed( object sender, EventArgs e ) {
+            MessageBox.Show( ((Window)sender).Name );
+        }
+
     }
 }

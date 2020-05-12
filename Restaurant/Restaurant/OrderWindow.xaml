@@ -1,9 +1,9 @@
-﻿<Window x:Class="Restorant.Order"
+﻿<Window x:Class="Restaurant.OrderWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Restorant"
+        xmlns:local="clr-namespace:Restaurant"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200"
         FontSize="18px" WindowStartupLocation="CenterScreen">
@@ -27,6 +27,7 @@
                 <TextBox Text="" Name="tboxLastName" MinWidth="100px" LostFocus="tboxLastName_OnLostForus"/>
             </StackPanel>
             <Button Content="Check person info" Name="btnCheckPersonInfo" Click="btnCheckPersonInfo_OnClick"/>
+            <Button Content="Save" Name="btnSaveOrder" Click="btnSaveOrder_OnClick"/>
         </StackPanel>
     </Grid>
 </Window>

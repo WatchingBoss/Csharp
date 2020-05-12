@@ -4,10 +4,17 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Authors>ActionLS</Authors>
+    <Company>ActionLS</Company>
+    <Description>Software for Delivary</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <Page Update="Order.xaml">
+    <ProjectReference Include="..\Restaurant_library\Restaurant_library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="OrderWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
