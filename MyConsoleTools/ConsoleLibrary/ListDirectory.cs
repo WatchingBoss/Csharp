@@ -7,8 +7,7 @@ namespace ConsoleLibrary
     public class ListDirectory
     {
         private readonly string directory;
-        private List<DirItem> listItems = new List<DirItem>();
-        private List<AnotherDirItem> anotherListItems = new List<AnotherDirItem>();
+        private List<DirItem> ListItems = new List<DirItem>();
 
         public ListDirectory( string dir ) {
             directory = dir;
@@ -19,45 +18,24 @@ namespace ConsoleLibrary
         private void getInfo( ) {
             DirectoryInfo dirInfo = new DirectoryInfo(directory);
 
-            foreach ( FileInfo file in dirInfo.GetFiles( ) )
-                anotherListItems.Add(new AnotherDirItem(file.FullName, file.Name, file.CreationTime, file.LastWriteTime, false));
-
             foreach ( DirectoryInfo file in dirInfo.GetDirectories( ) )
-                anotherListItems.Add(new AnotherDirItem(file.FullName, file.Name, file.CreationTime, file.LastWriteTime, false));
+                ListItems.Add(new DirItem(file.FullName, file.Name, file.CreationTime, file.LastWriteTime, true));
 
-            //foreach ( string subDir in Directory.GetDirectories( directory ) )
-            //    listItems.Add( new DirItem(subDir, true) );
-
-            //foreach ( string file in Directory.GetFiles( directory ) )
-            //    listItems.Add( new DirItem( file, false ) );
+            foreach ( FileInfo file in dirInfo.GetFiles( ) )
+                ListItems.Add(new DirItem(file.FullName, file.Name, file.CreationTime, file.LastWriteTime, false));
         }
 
         private void printDirectory( ) {
-            uint fileNumber = 1;
+            foreach ( DirItem item in ListItems )
+                print(item);
 
-            //foreach ( DirItem item in listItems )
-            //    print(item, fileNumber++);
-
-            foreach ( AnotherDirItem item in anotherListItems )
-                anotherPrint(item, fileNumber++);
-
-            Console.WriteLine($"Files: {fileNumber}");
+            Console.WriteLine($"Files: {ListItems.Count}");
         }
 
-        private void anotherPrint( AnotherDirItem item, uint number ) {
-            Console.WriteLine($"----- {number} -----------------------");
-            Console.WriteLine($"Created: { item.CreatedTime}");
-            Console.WriteLine($"Last updated: { item.LastWrite}");
+        private void print( DirItem item) {
             string mode = item.IsDir ? "d -> " : "f -> ";
-            Console.WriteLine($"{mode}{item.Name}");
-        }
 
-        private void print( DirItem item, uint number ) {
-            Console.WriteLine($"----- {number} -----------------------");
-            Console.WriteLine($"Created: { item.CreatedTime}");
-            Console.WriteLine($"Last updated: { item.LastWrite}");
-            string mode = item.IsDir ? "d -> " : "f -> ";
-            Console.WriteLine($"{mode}{item.Name}");
+            Console.WriteLine( $"{mode}\t{item.LastWrite}\t{item.Name}" );
         }
     }
 }
