@@ -19,6 +19,7 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
             <Button Content="New order" Name="btnNewOrder" Click="btnNewOrder_OnClick"/>
+            <Button Content="Check saves" Name="btnCheckSaves" Click="brcnCheckSaves_OnClick"/>
         </StackPanel>
 
         <ListView Grid.Row="1" Grid.Column="0">

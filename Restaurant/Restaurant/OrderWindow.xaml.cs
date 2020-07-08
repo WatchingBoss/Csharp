@@ -7,14 +7,14 @@ namespace Restaurant
 {
     public partial class OrderWindow : Window {
         private DeliveryOrder _order;
-        private bool _saveOrder = false;
+        private int _saveOrderCount;
 
-        public bool SavedOrder { get => _saveOrder; }
         public DeliveryOrder NewOrder { get => _order; }
 
         public OrderWindow( ) {
             InitializeComponent( );
             _order = new DeliveryOrder( );
+            _saveOrderCount = 0;
         }
 
         private void tboxFirstName_OnLostForus( object sender, RoutedEventArgs e ) {
@@ -31,7 +31,7 @@ namespace Restaurant
         }
 
         private void btnSaveOrder_OnClick( object sender, RoutedEventArgs e ) {
-            _saveOrder = true;
+            ++_saveOrderCount;
         }
     }
 

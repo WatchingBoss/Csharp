@@ -19,7 +19,8 @@ namespace Restaurant
 {
     public partial class MainWindow : Window
     {
-//        private List<DeliveryOrder> _savedOrders;
+        //        private List<DeliveryOrder> _savedOrders;
+        private List<OrderWindow> _openOrders = new List<OrderWindow>();
 
         public MainWindow() {
             InitializeComponent();
@@ -27,12 +28,15 @@ namespace Restaurant
 
         private void btnNewOrder_OnClick(object sender, RoutedEventArgs e) {
             OrderWindow newOrderWindow = new OrderWindow();
+            _openOrders.Add( newOrderWindow);
             newOrderWindow.Show( );
         }
-        
+
         private void ChildWindowClosed( object sender, EventArgs e ) {
             MessageBox.Show( ((Window)sender).Name );
         }
 
+        private void brcnCheckSaves_OnClick( object sender, RoutedEventArgs e ) {
+        }
     }
 }
