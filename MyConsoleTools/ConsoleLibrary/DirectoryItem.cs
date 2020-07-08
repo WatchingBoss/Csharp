@@ -17,8 +17,9 @@ namespace ConsoleLibrary
         public DirItem( string path, string name, DateTime create, DateTime write, bool isDir ) {
             _path = path;
             _name = name;
-            _createdTime = $"{create:g}";
-            _lastWriteTime = $"{write}";
+            _createdTime = String.Format("{0, 2}/{1, 2}/{2, 4:yyy} {3, 2}:{4, 2}", 
+                create.Day, create.Month, create.Year, create.Hour, create.Minute);
+            _lastWriteTime = ;
             _isDir = isDir;
         }
     }
